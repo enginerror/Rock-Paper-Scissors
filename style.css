@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #141414;
+    font-family: "Roboto", serif;
+}
+
+        /* strat head section */
+
+header {
+    padding: 2vh;
+    .headSection {
+        height: 23vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40vh;
+        background-color: #0e459d;
+        border-radius: 150px 150px 300px 200px;
+        border: 3px solid #073278;
+        #logoArea {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4vh;
+            #logo {
+                height: 10vh;
+                padding: 15px;
+                background-color: #141414 ;
+                border-radius: 20px;
+                border: 3px solid #073278;
+            }
+            #scoreBoard {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 5vh;
+                width: 5vh;
+                font-size: 25px;
+                color: #f9faf8;
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+        /* strat main section */
+
+main {
+    height: 48vh;
+    display: flex;
+    padding: 0 50vh;
+    justify-content: space-around;
+    align-items: center;
+    #playGround {
+        img {
+            height: 18vh;
+        }
+    }
+    .vsSection {
+        img {
+            height: 7vh;
+        }
+    }
+
+}
+
+
+        /* strat btn section */
+        
+
+.buttonSectionArea {
+    height: 16vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .buttonSection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 60vh;
+        border-radius: 30px;
+        #btn {
+            background: none;
+            border: none;
+        }
+        #btnImage {
+            height: 11vh;
+            padding: 20px;
+            background-color: #000;
+            border: 2px solid #0e459d;
+            border-radius: 30px;
+        }
+        #btnImage:hover {
+            background-color: #141414;
+            transition: .2s;
+        }
+    }
+}
+
+        /* strat footer section */
+
+footer {
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    color: #989898;
+    font-size: 10px;
+    padding: 0 4vh;
+}
