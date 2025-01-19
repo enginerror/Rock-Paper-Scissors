@@ -7,55 +7,83 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+            <!-- start popup section -->
+
+    <section class="startSection">
+        <div id="start-popup">
+            <div class="start-popup-content">
+              <p id="game-name">ROCK PAPER SCISSOR</p>
+              <p id="attempt-condition">You Have only 5 attamps</p>
+              <button id="startBtn">START</button>
+            </div>
+        </div>
+    </section>
+
+            <!-- start header section -->
+
     <header>
         <div class="headSection">
             <div class="playerSection" id="logoArea">
                 <img id="logo" src="./public/user.png" alt="Player Image">
-                <p id="scoreBoard">0</p>
+                <p id="playerScoreBoard">0</p>
+            </div>
+
+            <div class="resultArea">
+                <p id="result">Result</p>
             </div>
 
             <div class="robotSection" id="logoArea">
-                <p id="scoreBoard">0</p>
+                <p id="robotScoreBoard">0</p>
                 <img id="logo" src="./public/robot.png" alt="Robot Image">
             </div>
         </div>
     </header>
 
-            <!-- result section start -->
-
-
-            <!-- button main start -->
+            <!-- start main section -->
 
     <main>
         <div class="playerSection" id="playGround">
-            <img id="choiceImage" src="./public/stone.png" alt="">
+            <img id="playerChoiceImage" src="./public/user.png" alt="">
         </div>
         <div class="vsSection">
             <img src="./public/vs.png" alt="">
         </div>
         <div class="robotSection" id="playGround">
-            <img id="choiceImage" src="./public/scroll.png" alt="">
+            <img id="robotChoiceImage" src="./public/robot.png" alt="">
         </div>
     </main>
 
-
-            <!-- button section start -->
+            <!-- start button section -->
 
     <section class="buttonSectionArea">
          <div class="buttonSection">
-            <button id="btn"><img src="./public/stone.png" alt="" id="btnImage"></button>
-            <button id="btn"><img src="./public/scroll.png" alt="" id="btnImage"></button>
-            <button id="btn"><img src="./public/scissor.png" alt="" id="btnImage"></button>
+            <button id="rockBtn" ><img src="./public/stone.png" alt="" id="btnImage"></button>
+            <button id="paperBtn"><img src="./public/scroll.png" alt="" id="btnImage"></button>
+            <button id="scissorBtn"><img src="./public/scissor.png" alt="" id="btnImage"></button>
         </div>
     </section>
 
-
-            <!-- button section start -->
+            <!-- start footer section -->
 
     <footer>
         <p>Copyright &copy The Ayaan Project 2025</p>
     </footer>
 
-    <!-- <script src="script.js"></script> -->
+            <!-- start final result popup section -->
+
+            <section class="resultSection">
+                <div id="popup">
+                    <div class="popup-content">
+                      <p id="finalResult"></p>
+                      <div class="finalResult-Score">
+                        <p id="finalResult-playerScore"></p>
+                        <p id="finalResult-robotScore"></p>
+                      </div>
+                      <button id="closeBtn">Replay</button>
+                    </div>
+                </div>
+            </section>
+
+    <script src="script.js"></script>
 </body>
 </html>

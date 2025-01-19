@@ -1,54 +1,146 @@
-function getComputerChoice () {
-    const randomValue = Math.floor(Math.random() * 3);
-    if(randomValue === 0) {
-        return "rock";
-    } else if (randomValue === 1) {
-        return "paper";
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorBtn = document.querySelector("#scissorBtn");
+const playerChoiceImage = document.querySelector("#playerChoiceImage");
+const robotChoiceImage = document.querySelector("#robotChoiceImage");
+const result = document.querySelector("#result");
+const playerScoreBoard = document.querySelector("#playerScoreBoard");
+const robotScoreBoard = document.querySelector("#robotScoreBoard");
+const finalResult = document.querySelector("#finalResult");
+const popup = document.querySelector("#popup");
+const closeBtn = document.querySelector("#closeBtn");
+const finalResult_playerScore = document.querySelector("#finalResult-playerScore");
+const finalResult_robotScore = document.querySelector("#finalResult-robotScore");
+const start_popup = document.querySelector("#start-popup");
+const startBtn = document.querySelector("#startBtn");
+
+        /*   -- start popup Section --   */
+
+startBtn.onclick = () => {
+    start_popup.style.display = "none";
+}
+
+        /*   -- Player Play Section --   */
+
+// images for choice
+const choice = {
+    rock: "./public/stone.png",
+    paper: "./public/scroll.png",
+    scissor: "./public/scissor.png",
+};
+
+        /*   -- Robot Play Section --   */
+
+// function for robot choice
+function robotPlay () {
+    const option = ["rock", "paper", "scissor"];
+    return option[Math.floor(Math.random()* option.length)];
+}
+
+// function for play ground
+function resultArea (player, robot) {
+    if((player === "rock" && robot === "scissor") ||
+       (player === "paper" && robot === "rock") ||
+       (player === "scissor" && robot === "paper")) {
+            return "win";
+        } else if (player === robot) {
+            return "tie";
+        } else {
+            return "loss";
+        }
+}
+
+// score board
+let playerScore = 0;
+let robotScore = 0;
+let roundsPlayed = 0;
+const maxRound = 5;
+
+function updatScore(gameResult) {
+    if(gameResult === "win") {
+        playerScore++;
+    } else if (gameResult === "loss") {
+        robotScore++;
+    }
+    playerScoreBoard.textContent = playerScore;
+    robotScoreBoard.textContent = robotScore;
+}
+
+// play ground
+function playGame(playerChoice) {
+    if (roundsPlayed < maxRound) {
+        playerChoiceImage.src = choice[playerChoice];
+
+        const robotChoice = robotPlay();
+        robotChoiceImage.src = choice[robotChoice];
+
+        const gameResult = resultArea(playerChoice, robotChoice);
+        if (gameResult === "win") {
+            result.textContent = gameResult;
+            result.style.color = "#008000";
+        } else if (gameResult === "loss") {
+            result.textContent = gameResult;
+            result.style.color = "#c30808";
+        } else {
+            result.textContent = gameResult;
+            result.style.color = "#0e459d";
+        }
+
+        updatScore(gameResult);
+
+        roundsPlayed++;
+    }
+    if (roundsPlayed === maxRound) {
+        displayFinalResult();
+    }
+}
+
+// final result section
+function displayFinalResult() {
+    popup.style.display = "flex";
+    if(playerScore > robotScore) {
+        finalResult.textContent = "You Win";
+        finalResult.style.color = "#008000";
+        finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
+        finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
+    } else if(playerScore < robotScore) {
+        finalResult.textContent = "You Loss";
+        finalResult.style.color = "#c30808";
+        finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
+        finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
     } else {
-        return "scissors";
+        finalResult.textContent = "Game Tie";
+        finalResult.style.color = "#0e459d";
+        finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
+        finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
     }
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorBtn.disabled = true;
 }
 
-function getHumanChoice () {
-    const userInput = prompt("Enter rock 🪨 / paper 📰 / scissors ✂️");
-    if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
-        return userInput;
-    }
-    else {
-        alert("Invalid Choice");
-        return getHumanChoice();
-    }
-}
+// button events
+rockBtn.addEventListener("click", () => playGame("rock"));
+paperBtn.addEventListener("click", () => playGame("paper"));
+scissorBtn.addEventListener("click", () => playGame("scissor"));
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playGround(humanChoice, computerChoice) {
-    if(humanChoice === "rock" && computerChoice === "scissors" ||
-       humanChoice === "scissors" && computerChoice === "paper" ||
-       humanChoice === "paper" && computerChoice === "rock") {
-        alert(`You win 🏆 | (Human : ${humanChoice}) (Computer : ${computerChoice})`);
-        humanScore++;
-    } else if (humanChoice === computerChoice) {
-        alert(`Game tie 🫂 | Both chose : ${humanChoice}`)
-    } else {
-        alert(`You loss the round | (Human : ${humanChoice}) (Computer : ${computerChoice})`);
-        computerScore++;
-    }
+// restart game
+function replay() {
+    closeBtn.onclick = () => {
+        playerScore = 0;
+        robotScore = 0;
+        roundsPlayed = 0;
+        playerScoreBoard.textContent = "0";
+        robotScoreBoard.textContent = "0";
+        result.textContent = "Result";
+        result.style.color = "#d2d2d2";
+        playerChoiceImage.src = "./public/user.png";
+        robotChoiceImage.src = "./public/robot.png";
+        finalResult.textContent = "";
+        popup.style.display = "none";
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorBtn.disabled = false;
+    };
 }
-
-function playRound () {
-    for(let i=0; i<5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        playGround(humanChoice, computerChoice);
-    }
-    if (humanScore > computerScore) {
-        alert(`You win the game 🏆! Final Score - You: ${humanScore}, Computer: ${computerScore}`);
-    } else if (computerScore > humanScore) {
-        alert(`Computer wins the game! Final Score - You: ${humanScore}, Computer: ${computerScore}`);
-    } else {
-        alert(`The game is a tie! Final Score - You: ${humanScore}, Computer: ${computerScore}`);
-    }
-}
-playRound()
+replay();
