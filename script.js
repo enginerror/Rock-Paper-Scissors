@@ -46,7 +46,7 @@ function resultArea (player, robot) {
         } else if (player === robot) {
             return "tie";
         } else {
-            return "loss";
+            return "lose";
         }
 }
 
@@ -59,7 +59,7 @@ const maxRound = 5;
 function updatScore(gameResult) {
     if(gameResult === "win") {
         playerScore++;
-    } else if (gameResult === "loss") {
+    } else if (gameResult === "lose") {
         robotScore++;
     }
     playerScoreBoard.textContent = playerScore;
@@ -78,7 +78,7 @@ function playGame(playerChoice) {
         if (gameResult === "win") {
             result.textContent = gameResult;
             result.style.color = "#008000";
-        } else if (gameResult === "loss") {
+        } else if (gameResult === "lose") {
             result.textContent = gameResult;
             result.style.color = "#c30808";
         } else {
@@ -104,7 +104,7 @@ function displayFinalResult() {
         finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
         finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
     } else if(playerScore < robotScore) {
-        finalResult.textContent = "You Loss";
+        finalResult.textContent = "You Lose";
         finalResult.style.color = "#c30808";
         finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
         finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
