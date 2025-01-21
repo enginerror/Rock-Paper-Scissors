@@ -13,8 +13,10 @@ const finalResult_playerScore = document.querySelector("#finalResult-playerScore
 const finalResult_robotScore = document.querySelector("#finalResult-robotScore");
 const start_popup = document.querySelector("#start-popup");
 const startBtn = document.querySelector("#startBtn");
+const clickSound = document.querySelector("#clickSound");
 
         /*   -- start popup Section --   */
+
 
 startBtn.onclick = () => {
     start_popup.style.display = "none";
@@ -96,33 +98,51 @@ function playGame(playerChoice) {
 }
 
 // final result section
+// final result section
 function displayFinalResult() {
-    popup.style.display = "flex";
-    if(playerScore > robotScore) {
-        finalResult.textContent = "You Win";
-        finalResult.style.color = "#008000";
+    setTimeout(() => {
+        popup.style.display = "flex";
+        popup.style.opacity = "0"; // Start with invisible
+        setTimeout(() => {
+            popup.style.opacity = "1"; // Fade in
+        }, 50); // Slight delay to trigger the transition
+
+        if(playerScore > robotScore) {
+            finalResult.textContent = "You Win";
+            finalResult.style.color = "#008000";
+        } else if(playerScore < robotScore) {
+            finalResult.textContent = "You Lose";
+            finalResult.style.color = "#c30808";
+        } else {
+            finalResult.textContent = "Game Tie";
+            finalResult.style.color = "#0e459d";
+        }
         finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
         finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
-    } else if(playerScore < robotScore) {
-        finalResult.textContent = "You Lose";
-        finalResult.style.color = "#c30808";
-        finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
-        finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
-    } else {
-        finalResult.textContent = "Game Tie";
-        finalResult.style.color = "#0e459d";
-        finalResult_playerScore.textContent = `Your Score: ${playerScore}`;
-        finalResult_robotScore.textContent = `Robot Score: ${robotScore}`;
-    }
-    rockBtn.disabled = true;
-    paperBtn.disabled = true;
-    scissorBtn.disabled = true;
+        
+        rockBtn.disabled = true;
+        paperBtn.disabled = true;
+        scissorBtn.disabled = true;
+    }, 900); // Wait 1 second before showing the popup
 }
 
+
 // button events
-rockBtn.addEventListener("click", () => playGame("rock"));
-paperBtn.addEventListener("click", () => playGame("paper"));
-scissorBtn.addEventListener("click", () => playGame("scissor"));
+rockBtn.addEventListener("click", () => {
+    playGame("rock");
+    clickSound.currentTime = 0;
+    clickSound.play();
+});
+paperBtn.addEventListener("click", () => {
+    playGame("paper");
+    clickSound.currentTime = 0;
+    clickSound.play();
+});
+scissorBtn.addEventListener("click", () => {
+    playGame("scissor");
+    clickSound.currentTime = 0;
+    clickSound.play();
+});
 
 // restart game
 function replay() {
