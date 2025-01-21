@@ -48,6 +48,3 @@ rock-paper-scissors/
 - Add sound effects and background music.
 - Include a difficulty level setting.
 - Add a multiplayer option for two players.
-
-## License
-This project is open-source and available under the MIT License. Feel free to use, modify, and distribute it.
