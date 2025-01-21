@@ -32,7 +32,7 @@ A web-based **Rock, Paper, Scissors** game built using HTML, CSS, and JavaScript
 3. Open the `index.html` file in any web browser.
 
 ## Demo
-You can try the game live here: [Demo Link](https://ayaanmurshedkhan.github.io/Rock-Paper-Scissors/)
+You can try the game live here: [Link](https://enginerror.github.io/Rock-Paper-Scissors/)
 
 ## Project Structure
 ```
