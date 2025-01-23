@@ -70,7 +70,7 @@ function updatScore(gameResult) {
 
 // play ground
 function playGame(playerChoice) {
-    if (roundsPlayed < maxRound) {
+    if (playerScore < maxRound) {
         playerChoiceImage.src = choice[playerChoice];
 
         const robotChoice = robotPlay();
@@ -92,8 +92,17 @@ function playGame(playerChoice) {
 
         roundsPlayed++;
     }
-    if (roundsPlayed === maxRound) {
+    if (playerScore === maxRound) {
         displayFinalResult();
+        rockBtn.style.display = "none";
+        paperBtn.style.display = "none";
+        scissorBtn.style.display = "none";
+    } 
+    else if (robotScore === maxRound) {
+        displayFinalResult();
+        rockBtn.style.display = "none";
+        paperBtn.style.display = "none";
+        scissorBtn.style.display = "none";
     }
 }
 
@@ -158,9 +167,12 @@ function replay() {
         robotChoiceImage.src = "./public/robot.png";
         finalResult.textContent = "";
         popup.style.display = "none";
-        rockBtn.disabled = false;
-        paperBtn.disabled = false;
-        scissorBtn.disabled = false;
+        // rockBtn.disabled = false;
+        // paperBtn.disabled = false;
+        // scissorBtn.disabled = false;
+        rockBtn.style.display = "";
+        paperBtn.style.display = "";
+        scissorBtn.style.display = "";
     };
 }
 replay();
