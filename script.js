@@ -167,12 +167,12 @@ function replay() {
         robotChoiceImage.src = "./public/robot.png";
         finalResult.textContent = "";
         popup.style.display = "none";
-        // rockBtn.disabled = false;
-        // paperBtn.disabled = false;
-        // scissorBtn.disabled = false;
         rockBtn.style.display = "";
         paperBtn.style.display = "";
         scissorBtn.style.display = "";
+        rockBtn.disabled = false;
+        paperBtn.disabled = false;
+        scissorBtn.disabled = false;
     };
 }
 replay();
