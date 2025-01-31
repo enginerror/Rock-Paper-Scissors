@@ -13,13 +13,3 @@ A web-based **Rock, Paper, Scissors** game built using HTML, CSS, and JavaScript
 2. Choose your move: **Rock**, **Paper**, or **Scissors** by clicking the respective button.
 3. The computer randomly selects a move.
 4. The result (Win/Lose/Tie) is displayed along with an updated score.
-
-### Project Structure
-```
-rock-paper-scissors/
-│
-├── index.html      # Main HTML file
-├── style.css       # CSS file for styling
-├── script.js       # JavaScript file for game logic
-└── README.md       # Project README
-```
