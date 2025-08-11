@@ -1,84 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&display=swap");
 
-/* ----------------- Reset & Base Styles ----------------- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    min-height: 100vh;
-    width: 100vw;
-    background-color: #141414;
-    font-family: "Silkscreen", serif;
-    overflow-x: hidden;
+  height: 100vh;
+  width: 100%;
+  background-color: #141414;
+  font-family: "Silkscreen", serif;
 }
 
-/* ----------------- Start Popup Section ----------------- */
+/* -- start popup section -- */
+
 .startSection {
-    position: fixed;
-    z-index: 20;
-    width: 100vw;
-    height: 100vh;
-    top: 0; left: 0;
-    background: rgba(20,20,20,0.97);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#start-popup {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.start-popup-content {
+  #start-popup {
+    height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
+    /* display: none; */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+  .start-popup-content {
     height: 100vh;
+    width: 100%;
     font-size: 13px;
     padding: 20px;
     background-color: #141414;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 6vh;
-}
-#game-name {
-    font-size: 40px;
-    color: #bbbbbbf4;
-    text-align: center;
-}
-#attempt-condition {
-    color: #960c0ced;
-    font-size: 15px;
-}
-#startBtn {
-    height: 8vh;
-    width: 17vh;
-    background-color: #0e459d;
-    border-radius: 200px 200px 150px 300px;
-    border: 3px solid #073278;
-    color: #d2d2d2;
-    font-family: "Silkscreen", serif;
-    letter-spacing: -1px;
-    font-size: 15px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-#startBtn:hover {
-    background-color: #2569cc;
-    color: #fff;
+    #game-name {
+      font-size: 40px;
+      color: #bbbbbbf4;
+    }
+    #attempt-condition {
+      color: #960c0ced;
+      font-size: 12px;
+    }
+    #startBtn {
+      height: 8vh;
+      width: 17vh;
+      background-color: #0e459d;
+      border-radius: 200px 200px 150px 300px;
+      border: 3px solid #073278;
+      color: #d2d2d2;
+      font-family: "Silkscreen", serif;
+      letter-spacing: -1px;
+      font-size: 15px;
+    }
+    #closebtn:hover {
+      transition: 0.5s;
+    }
+  }
 }
 
-/* ------------------ Header Section ------------------ */
+/* -- start header section -- */
+
 header {
-    width: 100vw;
-    padding: 2vh 0;
-}
-.headSection {
-    width: 100%;
+  padding: 2vh;
+  .headSection {
     height: 23vh;
     display: flex;
     justify-content: space-between;
@@ -87,334 +74,162 @@ header {
     background-color: #0e459d;
     border-radius: 150px 150px 300px 200px;
     border: 3px solid #073278;
-    box-sizing: border-box;
-    min-height: 130px;
-}
-.logoArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4vh;
-}
-.playerLogo, .robotLogo {
-    height: 10vh;
-    min-height: 60px;
-    min-width: 60px;
-    padding: 15px;
-    background-color: #141414;
-    border-radius: 20px;
-    border: 3px solid #073278;
-    object-fit: contain;
-}
-#playerScoreBoard, #robotScoreBoard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-    width: 5vh;
-    font-size: 25px;
-    color: #f9faf8;
-    font-weight: 900;
-}
-.resultArea {
-    height: 8vh;
-    width: 25vh;
-    background-color: #141414;
-    border-radius: 300px 150px 300px 200px;
-    border: 3px solid #073278;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #d2d2d2;
-    letter-spacing: -1px;
-    font-size: 20px;
-    min-width: 150px;
-    min-height: 50px;
+    #logoArea {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4vh;
+      #logo {
+        height: 10vh;
+        padding: 15px;
+        background-color: #141414;
+        border-radius: 20px;
+        border: 3px solid #073278;
+      }
+      #playerScoreBoard,
+      #robotScoreBoard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        width: 5vh;
+        font-size: 25px;
+        color: #f9faf8;
+        font-weight: 900;
+      }
+    }
+    .resultArea {
+      height: 8vh;
+      width: 25vh;
+      background-color: #141414;
+      border-radius: 300px 150px 300px 200px;
+      border: 3px solid #073278;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #d2d2d2;
+      letter-spacing: -1px;
+    }
+  }
 }
 
-/* ------------------- Main Section ------------------- */
+/* -- start main section -- */
+
 main {
-    width: 100vw;
-    height: 48vh;
-    display: flex;
-    padding: 0 60vh;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 240px;
-}
-.playGround {
+  height: 48vh;
+  display: flex;
+  padding: 0 60vh;
+  justify-content: space-around;
+  align-items: center;
+  #playGround {
     height: 20vh;
     width: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#playerChoiceImage, #robotChoiceImage {
-    height: 18vh;
-    max-height: 140px;
-    object-fit: contain;
-    transition: filter 0.3s;
-}
-.vsSection img {
-    height: 7vh;
-    max-height: 50px;
-    min-height: 30px;
-    object-fit: contain;
+    img {
+      height: 18vh;
+    }
+  }
+  .vsSection {
+    img {
+      height: 7vh;
+    }
+  }
 }
 
-/* ------------------ Button Section ------------------ */
+/* strat btn section */
+
 .buttonSectionArea {
-    min-height: 12vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.buttonSection {
+  height: 16vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .buttonSection {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 60vh;
     border-radius: 30px;
-    gap: 3vw;
-}
-.buttonSection button {
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 0;
-}
-.btnImage {
-    height: 11vh;
-    min-height: 60px;
-    padding: 20px;
-    background-color: #000;
-    border: 2px solid #0e459d;
-    border-radius: 30px;
-    transition: border 0.3s, padding 0.3s, box-shadow 0.3s;
-}
-.btnImage:hover, .buttonSection button:focus .btnImage {
-    padding: 16px;
-    border: 2px solid #1289d2;
-    box-shadow: 0 0 8px #1991ed77;
+    button {
+      background: none;
+      border: none;
+    }
+    #btnImage {
+      height: 11vh;
+      padding: 20px;
+      background-color: #000;
+      border: 2px solid #0e459d;
+      border-radius: 30px;
+    }
+    #btnImage:hover {
+      padding: 16px;
+      border: 2px solid #1289d2;
+      transition: 0.4s;
+    }
+  }
 }
 
-/* ------------------- Footer Section ------------------ */
+/* strat footer section */
+
 footer {
-    height: 9vh;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    color: #989898;
-    font-size: 12px;
-    padding: 0 4vh;
+  height: 9vh;
+
+  display: flex;
+  align-items: center;
+  color: #989898;
+  font-size: 10px;
+  padding: 0 4vh;
 }
 
-/* -------------- Final Result Popup Section ------------- */
+/* -- start final result popup section -- */
+
 .resultSection {
-    position: fixed;
-    top: 0; left: 0;
-    z-index: 50;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Only pointer events when visible */
-}
-#popup {
-    width: 100vw;
-    height: 100vh;
-    top: 0; left: 0;
-    background: rgba(0,0,0,0.6);
-    position: fixed;
-    display: none; /* hidden by default */
+  #popup {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
     justify-content: center;
+
     align-items: center;
-    opacity: 0;
-    transition: opacity .9s ease-in-out;
-    pointer-events: auto;
-    z-index: 100;
-}
-#popup.active {
-    display: flex;
-    opacity: 1;
-}
-.popup-content {
-    min-height: 320px;
-    width: 100vw;
-    font-size: 15px;
+    position: fixed;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.9s ease-in-out;
+  }
+  .popup-content {
+    height: 100vh;
+    width: 100%;
+
+    font-size: 13px;
     padding: 20px;
-    background: #141414;
+    background-color: #141414;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     gap: 4vh;
-}
-#finalResult {
-    text-align: center;
-    font-weight: 700;
-    font-size: 35px;
-    margin-bottom: 0.7em;
-    color: #fff;
-}
-.finalResult-Score {
-    display: flex;
-    gap: 3vw;
-}
-#finalResult-playerScore, #finalResult-robotScore {
-    font-size: 18px;
-    color: #b5b5b5;
-}
-#closeBtn {
-    height: 7vh;
-    width: 15vh;
-    background-color: #0e459d;
-    border-radius: 300px 150px 300px 200px;
-    border: 3px solid #073278;
-    color: #d2d2d2;
-    font-family: "Silkscreen", serif;
-    letter-spacing: -1px;
-    margin-top: 2vh;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-#closeBtn:hover {
-    background-color: #296be5;
-    color: #fff;
-}
-
-
-/* ================ Responsive Design ================== */
-
-/* Tablet (≤1024px) */
-@media (max-width: 1024px) {
-    .headSection {
-        padding: 0 8vw;
-    }
-    main {
-        padding: 0 4vw;
-        min-height: 40vw;
-    }
-    .buttonSection {
-        width: 90vw;
-        gap: 5vw;
-    }
-}
-
-/* Mobile (≤600px) */
-@media (max-width: 600px) {
-    .start-popup-content {
-        gap: 4vh;
-        #game-name { font-size: 27px; }
-        #attempt-condition { font-size: 12px; }
-        #startBtn { width: 60vw; font-size: 13px; }
-    }
-    .headSection {
-        height: auto;
-        flex-direction: column;
-        gap: 2vh;
-        padding: 3vw 2vw;
-        border-radius: 45px 45px 90px 60px;
-    }
-    .logoArea {
-        gap: 2vw;
-    }
-    .playerLogo, .robotLogo {
-        height: 7vh;
-        min-height: 38px;
-        min-width: 38px;
-        padding: 7px;
-        border-radius: 10px;
-    }
-    #playerScoreBoard, #robotScoreBoard {
-        height: 3.5vh;
-        width: 3.5vh;
-        font-size: 18px;
-    }
-    .resultArea {
-        width: 70vw;
-        min-width: 80px;
-        font-size: 13px;
-        height: 5vh;
-        border-radius: 100px 85px 90px 80px;
-    }
-    main {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 0 2vw;
-        height: auto;
-        gap: 20px;
-        min-height: unset;
-    }
-    .playGround {
-        height: 11vh;
-        width: 11vh;
-    }
-    #playerChoiceImage, #robotChoiceImage {
-        height: 9vh;
-        max-height: 50px;
-    }
-    .vsSection img {
-        height: 4vh;
-        max-height: 20px;
-    }
-    .buttonSectionArea {
-        height: auto;
-        min-height: 80px;
-        margin-top: 2vh;
-    }
-    .buttonSection {
-        width: 98vw;
-        gap: 2vw;
-    }
-    .btnImage {
-        height: 6vh;
-        min-height: 28px;
-        padding: 9px;
-        border-radius: 14px;
-    }
-    .btnImage:hover, .buttonSection button:focus .btnImage {
-        padding: 5px;
-        border: 2px solid #1289d2;
-    }
-    .popup-content {
-        font-size: 12px;
-        gap: 2vh;
-        min-height: 200px;
-    }
     #finalResult {
-        font-size: 21px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 35px;
+    }
+    #finalResult-playerScore,
+    #finalResult-robotScore {
+      font-size: 15px;
+      color: #b5b5b5;
     }
     #closeBtn {
-        font-size: 13px;
-        height: 5vh;
-        width: 60vw;
-        min-width: 100px;
+      height: 7vh;
+      width: 15vh;
+      background-color: #0e459d;
+      border-radius: 300px 150px 300px 200px;
+      border: 3px solid #073278;
+      color: #d2d2d2;
+      font-family: "Silkscreen", serif;
+      letter-spacing: -1px;
     }
-}
-
-/* Very Small Devices (≤400px) */
-@media (max-width: 400px) {
-    #game-name, #finalResult {
-        font-size: 13px !important;
+    #closebtn:hover {
+      transition: 0.5s;
     }
-    .popup-content {
-        padding: 5px;
-    }
-    .btnImage {
-        height: 5vh;
-        min-height: 14px;
-        padding: 4px;
-    }
-    .headSection, .resultArea {
-        padding: 2vw 1vw;
-    }
-}
-
-/* Make images never exceed the parent */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+  }
 }
